@@ -1,2 +1,0 @@
-# AMK
-RSA chat
