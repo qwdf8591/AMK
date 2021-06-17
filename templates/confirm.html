@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/navbar.css')}}">
+
+</head>
+<body>
+
+<ul class="computer" id="topnav">
+	<li><a class="active" href="../">Secret Talk</a></li>
+	{% if login %}
+  	<li><a href="../receive">收件</a></li>
+  	<li><a href="../send">寄件</a></li>
+  	<div class="right">
+  		<li><a href="../logout">登出</a></li>
+  		<li>
+  			<a href="javascript:void(0);" class="icon" onclick="change()"><i class="fa fa-bars"></i></a>
+  		</li>
+  	</div>
+	{% else %}
+    <li><a href="../download">下載</a></li>
+		<div class="right">
+  		<li><a href="../register">註冊</a></li>
+  		<li><a href="../login">登入</a></li>
+      <li>
+        <a href="javascript:void(0);" class="icon" onclick="change()"><i class="fa fa-bars"></i></a>
+      </li>
+		</div>
+	{% endif %}
+</ul>
+	
+<div style="padding-top:45px;padding-left: 20px;">
+	{% if confirm == 'first' %}
+    <span style="background-color:limegreen;box-shadow:1px 1px 3px paleturquoise;">驗證連結已發到您的信箱，請在隔日午夜前完成驗證。</span>
+  {% elif confirm=='timeout' %}
+    <span style="background-color:limegreen;box-shadow:1px 1px 3px paleturquoise;">已超過驗證時間，請再次註冊。</span>
+  {% else %}
+    <span style="background-color:limegreen;box-shadow:1px 1px 3px paleturquoise;">恭喜你註冊成功，歡迎你使用ST系統。</span>
+  {% endif %}
+</div>
+
+<script>
+function change() {
+	var x = document.getElementById("topnav");
+	if (x.className === "computer") {
+		x.className = "phone";
+	} else {
+		x.className = "computer";
+	}
+}
+</script>
+
+</body>
+</html>

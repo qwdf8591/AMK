@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/navbar.css')}}">
+
+</head>
+<body>
+
+<ul class="computer" id="topnav">
+	<li><a class="active" href="../">Secret Talk</a></li>
+	{% if login %}
+  	<li><a href="../receive">收件</a></li>
+  	<li><a href="../send">寄件</a></li>
+    <li><a href="../friend">增加好友</a></li>
+  	<div class="right">
+  		<li><a href="../logout">登出</a></li>
+  		<li>
+  			<a href="javascript:void(0);" class="icon" onclick="change()"><i class="fa fa-bars"></i></a>
+  		</li>
+  	</div>
+	{% else %}
+    <li><a href="../download">下載</a></li>  
+		<div class="right">
+  		<li><a href="../register">註冊</a></li>
+  		<li><a href="../login">登入</a></li>
+      <li>
+        <a href="javascript:void(0);" class="icon" onclick="change()"><i class="fa fa-bars"></i></a>
+      </li>
+		</div>
+	{% endif %}
+</ul>
+	
+<div style="padding-top:45px;padding-left: 20px;">
+	{% if login %}	
+  	<h2>{{username}},歡迎回來</h2>
+  	<p>你有{{unread}}封未讀信件</p>
+	{% else %}
+  	<h2>歡迎來到Secret Talk</h2>
+  	<p>在這裡你可以安全的收發信件</p>
+  	<p>註冊前請先下載RSA計算器</p>
+  	<p>生成公私鑰後，保管好自己的私鑰</p>
+	{% endif %}
+</div>
+
+<script>
+function change() {
+	var x = document.getElementById("topnav");
+	if (x.className === "computer") {
+		x.className = "phone";
+	} else {
+		x.className = "computer";
+	}
+}
+</script>
+
+</body>
+</html>

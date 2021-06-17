@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/navbar.css')}}">
+
+<style>
+
+
+table{
+  background-color:lightblue;
+  border-radius:5px;
+  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-right: 10px;
+  margin-top:20px;
+  width:70%;
+}
+
+input{
+  font-size: initial;
+}
+
+span {
+  background-color:#FFC8B4;
+  box-shadow:1px 1px 3px red;
+  margin-right:8px;
+}
+
+@media screen and (max-width: 800px){
+  table{
+    width:90%;
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+<ul class="computer" id="topnav">
+  <li><a class="active" href="../">Secret Talk</a></li>
+  <li><a href="../download">下載</a></li>
+    <div class="right">
+      <li><a href="../register">註冊</a></li>
+      <li><a href="../login">登入</a></li>
+      <li>
+        <a href="javascript:void(0);" class="icon" onclick="change()"><i class="fa fa-bars"></i></a>
+      </li>
+    </div>
+</ul>
+
+<div style="padding-top: 100px">
+  <form method="post">    
+    <table align="center">
+    <tr>
+    <td colspan="2" align="right"><span>{{alert}}</span></td>
+    </tr>
+    <tr>
+      <th>暱稱</th>
+      <td><input class="w3-input w3-border w3-round-large" type='text' name="username" value={{nick}}></td>
+    </tr>
+    <tr>
+      <th width="15%">帳號</th>
+      <td><input class="w3-input w3-border w3-round-large" type='text' name="userid" value={{id}}></td>
+    </tr>
+    <tr>
+      <th>密碼</th>
+      <td><input class="w3-input w3-border w3-round-large" type='password' name="userpw" value={{pw}}></td>
+    </tr>
+    <tr>
+      <th>確認密碼</th>
+      <td><input class="w3-input w3-border w3-round-large" type='password' name="conf_pw" value={{conf_pw}}></td>
+    </tr>
+    <tr>
+      <th>認證信箱</th>
+      <td><input class="w3-input w3-border w3-round-large" type='text' name="email" value={{Email}}></td>
+    </tr>
+    <tr>
+      <th>你的公鑰</th>
+      <td><input class="w3-input w3-border w3-round-large" type='text' name="public_key" value={{public_key}}></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right"><input class="button" value="送出" type='submit' name="send"></td>
+    </tr>
+  </table>
+</form>
+</div>
+<script>
+function change() {
+  var x = document.getElementById("topnav");
+  if (x.className === "computer") {
+    x.className = "phone";
+  } else {
+    x.className = "computer";
+  }
+}
+</script>
+
+</body>
+</html>

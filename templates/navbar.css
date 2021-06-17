@@ -1,0 +1,80 @@
+html{height:100%;}
+body {
+  margin: 0;
+  height:100%;
+  transition: 2s;
+  font-family: Arial, Helvetica, sans-serif;}
+
+ul.computer{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lemonchiffon;
+  position: fixed;
+  width:100%;
+  z-index: 0;}
+ul.computer li{float: left;}
+ul.computer li a{
+  display: inline-block;
+  color: black;
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;}
+ul.computer li a.active{
+  color: lightyellow;
+  background-color: goldenrod;
+  font-family:DFKai-sb;
+  padding: 5px 16px;
+  font-size: x-large;}
+ul.computer li a:hover:not(.active,.icon){
+  background-color: darkkhaki;
+  color: lightgoldenrodyellow;}
+ul.computer li a.icon{display: none;}
+ul.computer .right{float: right;}
+
+@media screen and (max-width: 800px)
+{
+  ul.computer li a:not(.active){display: none;}
+  ul.computer li a.icon{display:block;padding:12px}
+  ul.computer li a.active{color: goldenrod;background-color: lemonchiffon;}
+  ul.computer li.search-container{display: none;}
+}
+@media screen and (max-width: 800px)
+{
+    ul.phone {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: thistle;
+    position: fixed;
+    width:100%;
+  }
+
+  ul.phone li a{
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  ul.phone li a.active{
+    color: lavender;
+    background-color: darkmagenta;
+  }
+
+  ul.phone li a:hover:not(.active)
+  {
+    background-color: darkviolet;
+    color: white;
+  }
+
+  ul.phone li a.icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.computer .right{float: left;}
+}
